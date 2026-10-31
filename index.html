@@ -28,10 +28,10 @@ function person(id){return state.personajes.find(p=>p.id===Number(id))?.nombre||
 function endpoint(item,side){const name=person(item[side]);const identity=item['identidad_'+side];return identity?identity+' ('+name+')':name}
 function editor(item={}){
  editing=item.id||null;$('fields').replaceChildren();
- const showEditor=tab!=='personajes'||editing!==null;
+ const showEditor=editing!==null;
  $('editor-panel').hidden=!showEditor;$('content').classList.toggle('solo-lista',!showEditor);
- if(!showEditor){$('form-title').textContent='Editar personaje';return}
- $('form-title').textContent=(editing?'Editar ':'Crear ')+names[tab];
+ $('form-title').textContent='Editar '+names[tab];
+ if(!showEditor)return;
  let specs;
  if(tab==='personajes')specs=[['nombre','Nombre *','input'],['identidades','Otras identidades de la misma persona','input'],['residencia','Residencia confirmada','input'],['control','Control del personaje','input'],['historia','Historia, apariencia y reglas del personaje','textarea']];
  else if(tab==='relaciones')specs=[['origen','De *','select'],['destino','Hacia *','select'],['identidad_origen','Identidad usada por el primer personaje (opcional)','input'],['identidad_destino','Identidad usada por el segundo personaje (opcional)','input'],['tipo','Tipo y estado del vínculo','input'],['descripcion','Relación, historia y límites del canon *','textarea']];
@@ -92,7 +92,7 @@ async function save(data){
  $('save').disabled=true;
  try{const response=await fetch('/api/'+tab,{method:'POST',headers:{'Content-Type':'application/json','X-Campana':'1'},body:JSON.stringify(data)});const result=await response.json();if(!response.ok)throw Error(result.error);state=result;$('error').textContent='';$('status').textContent=data.eliminar?'Entrada eliminada.':'Cambios guardados.';editor();render()}catch(error){$('error').textContent=error.message;$('status').textContent=''}finally{$('save').disabled=false}
 }
-$('editor').onsubmit=event=>{event.preventDefault();if(tab==='personajes'&&!editing)return;save({...Object.fromEntries(new FormData(event.target)),id:editing})};$('cancel').onclick=()=>editor();$('search').oninput=render;$('resident').onchange=render;
+$('editor').onsubmit=event=>{event.preventDefault();if(!editing)return;save({...Object.fromEntries(new FormData(event.target)),id:editing})};$('cancel').onclick=()=>editor();$('search').oninput=render;$('resident').onchange=render;
 for(const button of document.querySelectorAll('[data-tab]'))button.onclick=()=>{tab=button.dataset.tab;$('search').value='';$('status').textContent='';editor();render()};
 $('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='fathia.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 fetch('/api').then(r=>{if(!r.ok)throw Error('No se pudo cargar la campaña');return r.json()}).then(data=>{state=data;editor();render();$('save').disabled=false;$('export').disabled=false}).catch(e=>{$('error').textContent=e.message;$('stats').textContent='No se pudo cargar la campaña.'});
