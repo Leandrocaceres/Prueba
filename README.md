@@ -40,6 +40,9 @@ las solicitudes locales permiten validar el servicio.
 ## Consultar y editar
 
 - **Personajes:** historias, apariencias, reglas, identidades, residencia y control.
+  La vista muestra directamente las fichas, sin formulario para crear personajes.
+  El editor solo se abre al pulsar «Editar» en una ficha existente y se cierra
+  al guardar o cancelar.
   El filtro del caserón muestra sus 12 residentes. Buscar «victor» encuentra tanto
   la ficha de Enzi como las historias que mencionan esa identidad, sin exigir tildes.
   La ficha de Enzi tiene un selector para alternar los retratos de Enzi, Enmy y

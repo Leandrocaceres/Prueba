@@ -6,6 +6,7 @@
 <style>
 :root{font-family:system-ui;color:#eee6d8;background:#171b22;color-scheme:dark}body{max-width:1180px;margin:auto;padding:32px}h1,h2,h3{font-family:Georgia,serif}h1{font-size:48px;margin:8px 0}header p{color:#b6bdc9}nav{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}button,a{cursor:pointer}button,input,textarea,select{font:inherit;border-radius:8px;padding:10px;border:1px solid #505967}button{background:#dcc08b;color:#171b22}button[aria-pressed="true"]{background:#f2dcaf;outline:2px solid #dcc08b;outline-offset:2px}input,textarea,select{background:#202631;color:#fff;box-sizing:border-box;width:100%}textarea{min-height:140px}label{display:block;margin:12px 0}main{display:grid;grid-template-columns:330px 1fr;gap:26px}article,form,.notice{background:#242b36;padding:22px;border-radius:12px;margin-bottom:16px}article h2{margin-top:0}article p{white-space:pre-wrap;line-height:1.65;overflow-wrap:anywhere}article button{margin:8px 8px 0 0}.secondary{background:transparent;color:#eee6d8}.badge{display:inline-block;font-size:13px;background:#363f4d;border-radius:20px;padding:5px 10px;margin:0 6px 8px 0}#error{color:#ffb8ae}#status{color:#cde3bd}a{color:#dcc08b}small,.muted{color:#b6bdc9}summary{cursor:pointer;color:#dcc08b;padding:10px 0}#stats{margin:18px 0}.toolbar{display:flex;gap:20px;align-items:end}.toolbar label{flex:1}#resident-label{max-width:270px}[hidden]{display:none!important}:focus-visible{outline:2px solid #dcc08b;outline-offset:3px}@media(max-width:800px){main{grid-template-columns:1fr}body{padding:18px}.toolbar{display:block}#resident-label{max-width:none}}
 .portrait{margin:12px 0 18px}.portrait img{display:block;max-width:100%;width:320px;height:auto;border-radius:10px}.portrait figcaption{font-size:13px;color:#b6bdc9;margin-top:8px}
+main.solo-lista{grid-template-columns:minmax(0,1fr)}
 </style>
 </head>
 <body>
@@ -15,7 +16,7 @@
 <nav aria-label="Secciones de la campaña"><button data-tab="personajes">Personajes</button><button data-tab="relaciones">Relaciones</button><button data-tab="eventos">Acontecimientos</button><button data-tab="mundo">Mundo y canon</button><button data-tab="secretos">Secretos</button><button id="export" class="secondary" disabled>Exportar JSON</button></nav>
 <p id="error" role="alert"></p><p id="status" role="status"></p>
 <div class="toolbar"><label>Buscar en esta sección<input id="search" type="search" placeholder="Nombre, identidad, historia, vínculo…"></label><label id="resident-label">Personajes<select id="resident"><option value="todos">Todos</option><option value="caseron">Residentes del caserón</option></select></label></div>
-<main><aside><form id="editor"><h2 id="form-title">Nueva entrada</h2><div id="fields"></div><button id="save" disabled>Guardar</button> <button type="button" id="cancel" class="secondary">Cancelar edición</button></form><small>Los cambios se guardan en esta máquina. Exporta o respalda tu campaña. Las correcciones posteriores prevalecen sobre el documento inicial.</small></aside><section id="list" aria-label="Entradas de la sección" aria-live="polite"></section></main>
+<main id="content" class="solo-lista"><aside id="editor-panel" hidden><form id="editor"><h2 id="form-title">Editar personaje</h2><div id="fields"></div><button id="save" disabled>Guardar</button> <button type="button" id="cancel" class="secondary">Cancelar edición</button></form><small>Los cambios se guardan en esta máquina. Exporta o respalda tu campaña. Las correcciones posteriores prevalecen sobre el documento inicial.</small></aside><section id="list" aria-label="Entradas de la sección" aria-live="polite"></section></main>
 <script>
 let state={personajes:[],relaciones:[],eventos:[],mundo:[],secretos:[]},tab='personajes',editing=null;
 const $=id=>document.getElementById(id);
@@ -26,7 +27,11 @@ function element(tag,text){const node=document.createElement(tag);node.textConte
 function person(id){return state.personajes.find(p=>p.id===Number(id))?.nombre||'Personaje eliminado'}
 function endpoint(item,side){const name=person(item[side]);const identity=item['identidad_'+side];return identity?identity+' ('+name+')':name}
 function editor(item={}){
- editing=item.id||null;$('form-title').textContent=(editing?'Editar ':'Crear ')+names[tab];$('fields').replaceChildren();
+ editing=item.id||null;$('fields').replaceChildren();
+ const showEditor=tab!=='personajes'||editing!==null;
+ $('editor-panel').hidden=!showEditor;$('content').classList.toggle('solo-lista',!showEditor);
+ if(!showEditor){$('form-title').textContent='Editar personaje';return}
+ $('form-title').textContent=(editing?'Editar ':'Crear ')+names[tab];
  let specs;
  if(tab==='personajes')specs=[['nombre','Nombre *','input'],['identidades','Otras identidades de la misma persona','input'],['residencia','Residencia confirmada','input'],['control','Control del personaje','input'],['historia','Historia, apariencia y reglas del personaje','textarea']];
  else if(tab==='relaciones')specs=[['origen','De *','select'],['destino','Hacia *','select'],['identidad_origen','Identidad usada por el primer personaje (opcional)','input'],['identidad_destino','Identidad usada por el segundo personaje (opcional)','input'],['tipo','Tipo y estado del vínculo','input'],['descripcion','Relación, historia y límites del canon *','textarea']];
@@ -87,7 +92,7 @@ async function save(data){
  $('save').disabled=true;
  try{const response=await fetch('/api/'+tab,{method:'POST',headers:{'Content-Type':'application/json','X-Campana':'1'},body:JSON.stringify(data)});const result=await response.json();if(!response.ok)throw Error(result.error);state=result;$('error').textContent='';$('status').textContent=data.eliminar?'Entrada eliminada.':'Cambios guardados.';editor();render()}catch(error){$('error').textContent=error.message;$('status').textContent=''}finally{$('save').disabled=false}
 }
-$('editor').onsubmit=event=>{event.preventDefault();save({...Object.fromEntries(new FormData(event.target)),id:editing})};$('cancel').onclick=()=>editor();$('search').oninput=render;$('resident').onchange=render;
+$('editor').onsubmit=event=>{event.preventDefault();if(tab==='personajes'&&!editing)return;save({...Object.fromEntries(new FormData(event.target)),id:editing})};$('cancel').onclick=()=>editor();$('search').oninput=render;$('resident').onchange=render;
 for(const button of document.querySelectorAll('[data-tab]'))button.onclick=()=>{tab=button.dataset.tab;$('search').value='';$('status').textContent='';editor();render()};
 $('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='fathia.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 fetch('/api').then(r=>{if(!r.ok)throw Error('No se pudo cargar la campaña');return r.json()}).then(data=>{state=data;editor();render();$('save').disabled=false;$('export').disabled=false}).catch(e=>{$('error').textContent=e.message;$('stats').textContent='No se pudo cargar la campaña.'});
