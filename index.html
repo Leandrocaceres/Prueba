@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fathia · Archivo de campaña</title>
+<style>
+:root{font-family:system-ui;color:#eee6d8;background:#171b22;color-scheme:dark}body{max-width:1180px;margin:auto;padding:32px}h1,h2,h3{font-family:Georgia,serif}h1{font-size:48px;margin:8px 0}header p{color:#b6bdc9}nav{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}button,a{cursor:pointer}button,input,textarea,select{font:inherit;border-radius:8px;padding:10px;border:1px solid #505967}button{background:#dcc08b;color:#171b22}button[aria-pressed="true"]{background:#f2dcaf;outline:2px solid #dcc08b;outline-offset:2px}input,textarea,select{background:#202631;color:#fff;box-sizing:border-box;width:100%}textarea{min-height:140px}label{display:block;margin:12px 0}main{display:grid;grid-template-columns:330px 1fr;gap:26px}article,form,.notice{background:#242b36;padding:22px;border-radius:12px;margin-bottom:16px}article h2{margin-top:0}article p{white-space:pre-wrap;line-height:1.65;overflow-wrap:anywhere}article button{margin:8px 8px 0 0}.secondary{background:transparent;color:#eee6d8}.badge{display:inline-block;font-size:13px;background:#363f4d;border-radius:20px;padding:5px 10px;margin:0 6px 8px 0}#error{color:#ffb8ae}#status{color:#cde3bd}a{color:#dcc08b}small,.muted{color:#b6bdc9}summary{cursor:pointer;color:#dcc08b;padding:10px 0}#stats{margin:18px 0}.toolbar{display:flex;gap:20px;align-items:end}.toolbar label{flex:1}#resident-label{max-width:270px}[hidden]{display:none!important}:focus-visible{outline:2px solid #dcc08b;outline-offset:3px}@media(max-width:800px){main{grid-template-columns:1fr}body{padding:18px}.toolbar{display:block}#resident-label{max-width:none}}
+.portrait{margin:12px 0 18px}.portrait img{display:block;max-width:100%;width:320px;height:auto;border-radius:10px}.portrait figcaption{font-size:13px;color:#b6bdc9;margin-top:8px}
+</style>
+</head>
+<body>
+<header><small>ANIMA: BEYOND FANTASY · ARCHIVO DEL DIRECTOR</small><h1>Fathia</h1><p>Personajes, historias y vínculos de tu mundo.</p></header>
+<div class="notice"><strong>Referencia completa del director.</strong> Incluye secretos y conocimientos que los personajes pueden desconocer. No es una vista filtrada para jugadores. <a href="/canon" target="_blank" rel="noopener">Leer documento maestro</a>.</div>
+<div id="stats" class="muted" aria-live="polite">Cargando campaña…</div>
+<nav aria-label="Secciones de la campaña"><button data-tab="personajes">Personajes</button><button data-tab="relaciones">Relaciones</button><button data-tab="eventos">Acontecimientos</button><button data-tab="mundo">Mundo y canon</button><button data-tab="secretos">Secretos</button><button id="export" class="secondary" disabled>Exportar JSON</button></nav>
+<p id="error" role="alert"></p><p id="status" role="status"></p>
+<div class="toolbar"><label>Buscar en esta sección<input id="search" type="search" placeholder="Nombre, identidad, historia, vínculo…"></label><label id="resident-label">Personajes<select id="resident"><option value="todos">Todos</option><option value="caseron">Residentes del caserón</option></select></label></div>
+<main><aside><form id="editor"><h2 id="form-title">Nueva entrada</h2><div id="fields"></div><button id="save" disabled>Guardar</button> <button type="button" id="cancel" class="secondary">Cancelar edición</button></form><small>Los cambios se guardan en esta máquina. Exporta o respalda tu campaña. Las correcciones posteriores prevalecen sobre el documento inicial.</small></aside><section id="list" aria-label="Entradas de la sección" aria-live="polite"></section></main>
+<script>
+let state={personajes:[],relaciones:[],eventos:[],mundo:[],secretos:[]},tab='personajes',editing=null;
+const $=id=>document.getElementById(id);
+const names={personajes:'personaje',relaciones:'relación',eventos:'acontecimiento',mundo:'entrada del mundo',secretos:'secreto'};
+const selectedForms=new Map();
+const fold=text=>String(text).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase();
+function element(tag,text){const node=document.createElement(tag);node.textContent=text;return node}
+function person(id){return state.personajes.find(p=>p.id===Number(id))?.nombre||'Personaje eliminado'}
+function endpoint(item,side){const name=person(item[side]);const identity=item['identidad_'+side];return identity?identity+' ('+name+')':name}
+function editor(item={}){
+ editing=item.id||null;$('form-title').textContent=(editing?'Editar ':'Crear ')+names[tab];$('fields').replaceChildren();
+ let specs;
+ if(tab==='personajes')specs=[['nombre','Nombre *','input'],['identidades','Otras identidades de la misma persona','input'],['residencia','Residencia confirmada','input'],['control','Control del personaje','input'],['historia','Historia, apariencia y reglas del personaje','textarea']];
+ else if(tab==='relaciones')specs=[['origen','De *','select'],['destino','Hacia *','select'],['identidad_origen','Identidad usada por el primer personaje (opcional)','input'],['identidad_destino','Identidad usada por el segundo personaje (opcional)','input'],['tipo','Tipo y estado del vínculo','input'],['descripcion','Relación, historia y límites del canon *','textarea']];
+ else specs=[['titulo','Título *','input'],...(tab==='eventos'?[['fecha','Fecha o secuencia confirmada (si se conoce)','input']]:[]),['historia',tab==='secretos'?'Hecho y quién lo conoce o desconoce':'Contenido','textarea']];
+ for(const [key,title,type] of specs){const label=element('label',title),field=document.createElement(type);field.name=key;if(type==='select'){field.append(new Option('Selecciona un personaje',''));for(const p of state.personajes)field.append(new Option(p.nombre+(p.identidades?' ('+p.identidades+')':''),p.id))}field.value=item[key]??'';if(title.includes('*'))field.required=true;label.append(field);$('fields').append(label)}
+}
+function portrait(item){
+ const wrapper=document.createElement('div'),content=document.createElement('div');
+ const forms=item.formas||[{nombre:item.nombre||item.titulo,imagen:item.imagen,imagen_alt:item.imagen_alt,imagen_pendiente:item.imagen_pendiente}];
+ const saved=selectedForms.get(item.id);
+ const current=forms.find(form=>form.nombre===saved)||forms[0];
+ function show(form){
+  content.replaceChildren();
+  if(form.imagen){
+   const figure=document.createElement('figure');figure.className='portrait';
+   const link=document.createElement('a');link.href=form.imagen;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','Ver imagen completa de '+form.nombre);
+   const img=document.createElement('img');img.src=form.imagen;img.alt=form.imagen_alt||('Retrato de '+form.nombre);img.loading='lazy';
+   img.onerror=()=>{figure.replaceChildren(element('p','No se pudo cargar la imagen.'))};
+   link.append(img);figure.append(link,element('figcaption',form.nombre+' · referencia original · abrir imagen completa'));content.append(figure);
+  }else{
+   const pending=element('p','Todavía no se ha añadido una imagen de '+form.nombre+'.');pending.className='muted';content.append(pending);
+  }
+ }
+ if(forms.length>1){
+  const label=element('label','Ver identidad'),select=document.createElement('select');
+  select.setAttribute('aria-label','Ver identidad de '+item.nombre);
+  for(const form of forms)select.append(new Option(form.nombre+(form.imagen?'':' (imagen pendiente)'),form.nombre));
+  select.value=current.nombre;
+  select.onchange=()=>{selectedForms.set(item.id,select.value);show(forms.find(form=>form.nombre===select.value))};
+  label.append(select);wrapper.append(label,element('small','Son identidades de '+item.nombre+' y comparten esta misma ficha.'));
+ }
+ wrapper.append(content);show(current);return wrapper;
+}
+function render(){
+ $('list').replaceChildren();$('resident-label').hidden=tab!=='personajes';
+ for(const button of document.querySelectorAll('[data-tab]'))button.setAttribute('aria-pressed',String(button.dataset.tab===tab));
+ const residents=state.personajes.filter(p=>p.residencia==='Caserón de Enzi').length;
+ $('stats').textContent=state.personajes.length+' personajes · '+residents+' residentes del caserón · '+state.relaciones.length+' vínculos · '+state.secretos.length+' secretos';
+ const query=fold($('search').value);
+ const rows=state[tab].filter(item=>{
+  if(tab==='personajes'&&$('resident').value==='caseron'&&item.residencia!=='Caserón de Enzi')return false;
+  return fold([...Object.values(item),tab==='relaciones'?person(item.origen)+' '+person(item.destino):''].join(' ')).includes(query);
+ });
+ if(!rows.length)$('list').append(element('p',query?'No hay coincidencias.':'No hay entradas en esta vista.'));
+ for(const item of rows){
+  const card=document.createElement('article');
+  card.append(element('h2',tab==='relaciones'?endpoint(item,'origen')+' → '+endpoint(item,'destino'):item.nombre||item.titulo));
+  for(const text of [item.tipo,item.fecha,item.residencia,item.control?'Control: '+item.control:'',item.identidades?'Identidades: '+item.identidades:''])if(text){const badge=element('span',text);badge.className='badge';card.append(badge)}
+  if(item.formas||item.imagen||item.imagen_pendiente)card.append(portrait(item));
+  const text=item.historia||item.descripcion||'Sin información registrada todavía.';
+  if(text.length>500){const detail=document.createElement('details');detail.append(element('summary','Leer ficha completa'),element('p',text));card.append(detail)}else card.append(element('p',text));
+  const edit=element('button','Editar');edit.onclick=()=>{editor(item);$('form-title').scrollIntoView({behavior:'smooth',block:'start'})};
+  const del=element('button','Eliminar');del.className='secondary';del.onclick=async()=>{if(confirm('¿Eliminar esta entrada? Si es un personaje, también se eliminarán sus relaciones.'))await save({id:item.id,eliminar:true})};
+  card.append(edit,del);$('list').append(card);
+ }
+}
+async function save(data){
+ $('save').disabled=true;
+ try{const response=await fetch('/api/'+tab,{method:'POST',headers:{'Content-Type':'application/json','X-Campana':'1'},body:JSON.stringify(data)});const result=await response.json();if(!response.ok)throw Error(result.error);state=result;$('error').textContent='';$('status').textContent=data.eliminar?'Entrada eliminada.':'Cambios guardados.';editor();render()}catch(error){$('error').textContent=error.message;$('status').textContent=''}finally{$('save').disabled=false}
+}
+$('editor').onsubmit=event=>{event.preventDefault();save({...Object.fromEntries(new FormData(event.target)),id:editing})};$('cancel').onclick=()=>editor();$('search').oninput=render;$('resident').onchange=render;
+for(const button of document.querySelectorAll('[data-tab]'))button.onclick=()=>{tab=button.dataset.tab;$('search').value='';$('status').textContent='';editor();render()};
+$('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download='fathia.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+fetch('/api').then(r=>{if(!r.ok)throw Error('No se pudo cargar la campaña');return r.json()}).then(data=>{state=data;editor();render();$('save').disabled=false;$('export').disabled=false}).catch(e=>{$('error').textContent=e.message;$('stats').textContent='No se pudo cargar la campaña.'});
+</script>
+</body>
+</html>

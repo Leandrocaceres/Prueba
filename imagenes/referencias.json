@@ -1,0 +1,139 @@
+{
+  "personajes": {
+    "Fumi": {
+      "archivo": "fumi.jpg",
+      "alt": "Retrato de Fumi aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Fumi.zip / rML71ub.jpg"
+    },
+    "Horo": {
+      "archivo": "horo.png",
+      "alt": "Retrato de Horo aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Horo.zip / Horo.png"
+    },
+    "Enzi": {
+      "archivo": "enzi.png",
+      "alt": "Retrato de Enzi aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Enzi.zip / 7a10464e-3bef-4f24-a128-c3c49076f95b.png",
+      "identidades": {
+        "Enmy": {
+          "archivo": "enmy.png",
+          "alt": "Retrato de Enmy, forma femenina de Enzi",
+          "estado": "disponible",
+          "origen": "Enmy.zip / 5c3a2084-aaa7-4d36-ad3d-dadb0324f1c0.png"
+        },
+        "Víctor": {
+          "archivo": "victor.png",
+          "alt": "Retrato de Víctor, identidad humana de Enzi",
+          "estado": "disponible",
+          "origen": "Victor.zip / Voctor.png"
+        }
+      }
+    },
+    "Asuka": {
+      "archivo": "asuka.png",
+      "alt": "Retrato de Asuka aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Asuka.zip / ce45bfadd7c40f32081975abe7bd63d0.png"
+    },
+    "Hikari": {
+      "archivo": "hikari.png",
+      "alt": "Retrato de Hikari aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Hikari.zip / sample-3f573b81dc66864d1c98fdb1aa4830cd.png"
+    },
+    "IA": {
+      "archivo": "ia.jpg",
+      "alt": "Retrato de IA, sirvienta salomónica",
+      "estado": "disponible",
+      "origen": "IA.zip / Assassin.Katou.Danzou.600.2280249.jpg"
+    },
+    "Yuna": {
+      "archivo": "yuna.jpg",
+      "alt": "Retrato de Yuna con sus accesorios de orejas y cola",
+      "estado": "disponible",
+      "origen": "Yuna.zip / 687097639f8da9986e6d55192050166b-1.jpg"
+    },
+    "Aria": {
+      "archivo": "aria.webp",
+      "alt": "Retrato de Tamamo Aria (Aria) aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Tamamo_Aria.zip / Tamamo_Aria_SR.webp"
+    },
+    "Pip": {
+      "archivo": "pip.png",
+      "alt": "Retrato de Pip en forma humana aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Pip.zip / unknown-14.png"
+    },
+    "Shiey": {
+      "archivo": "shiey.png",
+      "alt": "Retrato de Shiey aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Shiey.zip / Shiey.png"
+    },
+    "Mary": {
+      "archivo": "mary-mimy.png",
+      "alt": "Imagen compartida de Mary y Mimy, referencia de Mary",
+      "estado": "disponible",
+      "origen": "Mary y mimy.zip / GVFo7FdaEAAJNaJ.png"
+    },
+    "Mimy": {
+      "archivo": "mary-mimy.png",
+      "alt": "Imagen compartida de Mary y Mimy, referencia de Mimy",
+      "estado": "disponible",
+      "origen": "Mary y mimy.zip / GVFo7FdaEAAJNaJ.png"
+    },
+    "Lerey": {
+      "archivo": "lerey.png",
+      "alt": "Retrato de Lerey aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Lerey.zip / Lerey.png"
+    },
+    "Sery Factar": {
+      "archivo": "sery-factar.jpg",
+      "alt": "Retrato de Sery Factar aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Sery Factar.zip / Sery Factar.jpg"
+    },
+    "Benienma-Sama": {
+      "archivo": "benienma-sama.png",
+      "alt": "Retrato de Benienma-Sama aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Benienma-Sama.zip / Beni-sama.png"
+    },
+    "Jazmín": {
+      "archivo": "jazmin.png",
+      "alt": "Retrato de Jazmín aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Jazmin.zip / Jazmin.png"
+    },
+    "Eiko": {
+      "archivo": "eiko.png",
+      "alt": "Retrato de Eiko aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Eiko.zip / Eiko.png"
+    },
+    "Exusiai": {
+      "archivo": "exusiai.jpg",
+      "alt": "Retrato de Exusiai aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Exusiai.zip / images.jpg"
+    },
+    "Lappland": {
+      "archivo": "lappland.png",
+      "alt": "Referencia visual de Lappland aportada por el usuario",
+      "estado": "disponible",
+      "origen": "Lappland.zip / HSltH1oakAAcd2m.png"
+    },
+    "Salama": {
+      "archivo": "salama.jpg",
+      "alt": "Retrato de Salama aportado por el usuario",
+      "estado": "disponible",
+      "origen": "Salama.zip / B1H7OAOIQAAKA5j.jpg_large.jpg"
+    }
+  },
+  "mundo": {}
+}

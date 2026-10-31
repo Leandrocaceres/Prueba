@@ -1,0 +1,177 @@
+Los siguientes acontecimientos están ordenados cuando su secuencia es conocida. No inventar fechas ni posiciones temporales para los sucesos cuya cronología exacta no se haya confirmado.
+1. Enzi y Horo formaban parte de un gremio mercenario.
+2. Durante su vida en el gremio, Horo desarrolló sentimientos por Enzi.
+3. Horo se declaró y le enseñó progresivamente a comprender el amor romántico.
+4. Durante una misión conocieron Fathia.
+5. Un inquisidor descubrió su verdadera naturaleza, pero no los denunció.
+6. Enzi y Horo compraron el caserón en Fathia.
+7. Con el tiempo se formó una familia con varias relaciones amorosas.
+8. Hikari encontró a Fumi después de que esta escapara del mundo de las hadas y la llevó al caserón.
+9. Fumi estableció una relación con Enzi y comenzó a colaborar con Eiko.
+10. Salama encontró a Fumi, pero esta la rechazó. Salama acabó viviendo cerca de Fathia.
+11. Enmy y Salama desarrollaron una relación, sin que Salama descubriera la verdadera identidad de Enmy.
+12. En un viaje a una ciudad vecina, Víctor conoció a Lerey. Ambos comenzaron a mantener correspondencia.
+13. Durante un viaje bajo la identidad de Víctor, Enzi encontró y rescató a Pip, cuya maldición produce transformaciones mediante besos.
+14. IA creó a Mary y Mimy para ayudar a Horo.
+15. La familia comenzó a desarrollar el proyecto del dojo y el restaurante.
+16. Exusiai y Lappland, antiguas compañeras del gremio, trabajan actualmente para Samael.
+Esta lista no significa necesariamente que todos los acontecimientos del punto 7 en adelante ocurrieran exactamente en ese orden.
+Hay dos grupos principales de personajes controlados por jugadores.
+- Horo.
+- Shiey.
+- Fumi.
+- Asuka.
+- Yuna.
+- Pip.
+- Aria.
+- Enzi.
+- Hikari.
+- IA.
+Son personajes secundarios.
+Su control debe quedar sujeto a lo que decidan los jugadores.
+Si ChatGPT actúa como narrador:
+- No debe decidir acciones importantes de los personajes controlados por jugadores.
+- No debe poner diálogos en sus bocas sin autorización.
+- No debe imponer decisiones románticas.
+- No debe alterar sus sentimientos o relaciones.
+- Puede describir escenarios, consecuencias y personajes secundarios cuando corresponda.
+- Debe permitir que los jugadores respondan y dirijan sus propios personajes.
+Fathia combina varios géneros:
+- Romance.
+- Vida cotidiana.
+- Fantasía.
+- Comedia.
+- Aventuras.
+- Misterio.
+- Conflictos sobrenaturales.
+La convivencia de Enzi con su familia constituye una parte fundamental de la historia.
+No todo debe girar alrededor de combates, persecuciones o amenazas.
+También son importantes:
+- Las comidas familiares.
+- El entrenamiento en el dojo.
+- Las actividades de Horo en la cocina.
+- Los trabajos de Fumi y Eiko.
+- Los momentos románticos.
+- Los paseos por el pueblo.
+- Las conversaciones entre los residentes.
+- Las pequeñas situaciones humorísticas.
+La Iglesia puede representar un peligro, pero debe intervenir de forma lógica y gradual, no aparecer constantemente para forzar conflictos.
+Las imágenes deben conservar la identidad visual de los personajes.
+- Tres colas, no más.
+- Orejas animales.
+- Cabello muy largo.
+- Piel bronceada.
+- Constitución musculosa.
+- Mantener sus accesorios característicos, incluidos los detalles de huesos cuando correspondan.
+- Cabello blanco, gris o plateado.
+- Ojos azulados o turquesa.
+- Orejas y cola animales.
+- No cambiar arbitrariamente su apariencia.
+- Cabello blanco.
+- Orejas animales.
+- Gran cola blanca.
+- Pequeño gorro rojo.
+- Expresiones tsundere.
+- Cabello rojo largo.
+- Apariencia femenina.
+- Mantener su estética de shinigami.
+- Cabello rubio.
+- Alas blancas.
+- Puede convertirse en un ave gordita y muy emplumada.
+- Cabello azul verdoso.
+- Gafas.
+- Lazo rojo.
+- Puede aparecer en tamaño de hada o humano según la escena.
+- Rubia de coletas largas.
+- Ojos rojos.
+- Ropa negra y dorada.
+- Orejas y cola exclusivamente artificiales.
+- Cabello rosado.
+- Orejas y cola animales.
+- Gran lazo amarillo.
+- Ropa amarilla y negra.
+- Katana.
+- Cabello azul oscuro.
+- Ojos amarillos.
+- Bufanda roja.
+- Apariencia de sirvienta salomónica.
+- Cabello negro corto.
+- Ojos dorados.
+- Lazo rojo.
+- Cabello rosa.
+- Ojos rosados.
+- Lazo rosa.
+- Forma humana de cabello blanco corto y ojos rosados.
+- Vestimenta blanca, negra y dorada.
+- También posee forma de pájaro.
+- Cabello negro largo.
+- Vestimenta elegante burdeos.
+- Estética medieval refinada.
+- Las imágenes recientes utilizan accesorios dorados, pañuelo burdeos y joyas delicadas.
+- No añadir brazos, manos, orejas ni colas adicionales.
+- Respetar las referencias originales.
+- Evitar que varios personajes terminen teniendo el mismo rostro.
+- Mantener coherencia en el color de cabello y los accesorios.
+- No convertir accesorios artificiales en partes biológicas.
+- No modificar características esenciales sin autorización.
+Las descripciones escritas son una guía. Las imágenes originales proporcionadas por el usuario tienen prioridad para establecer la apariencia exacta.
+Se desarrolló un proyecto de novela visual romántica ambientado en Fathia.
+Título utilizado: Fathia: Entre flores y escarcha.
+La versión trabajada incluía tres capítulos centrados especialmente en Horo, Enzi y Asuka.
+El tercer capítulo tenía como idea principal una cita romántica entre Enzi, Horo y Asuka.
+Era importante conservar la personalidad tsundere de Asuka.
+También se exploró la posibilidad de utilizar imágenes de los personajes durante los diálogos y compartir la novela visual con otras personas.
+El texto completo de los capítulos no queda reproducido en este documento, por lo que no debe inventarse como si fuera el guion original.
+También se trabajó en un narrador para la campaña de Fathia usando un bot de Discord y Gemini.
+El objetivo era narrar acontecimientos respetando el canon y evitando controlar las decisiones de los jugadores.
+Se han trabajado escenas de:
+- Enzi y Horo en momentos románticos.
+- Enzi y Fumi leyendo o compartiendo cariño.
+- Enzi y Asuka tomando té.
+- Enzi entrenando con Yuna.
+- Enzi y Shiey.
+- Enzi y Aria.
+- Enzi y Hikari.
+- Enzi con Horo durmiendo sobre su pecho, cubiertos por las colas de Enzi.
+- Enmy con Salama.
+- Retratos grupales del caserón.
+- Eiko y Fumi de picnic.
+- Retratos de Eiko en su tienda y de perfil.
+Estas escenas sirven como antecedentes creativos, sin implicar que todas formen parte necesariamente de la cronología oficial de la partida.
+Algunos aspectos no están completamente definidos en el contexto disponible.
+Por ejemplo:
+- Las edades exactas de todos los personajes.
+- Los cumpleaños.
+- Las fechas concretas de cada relación.
+- La cronología completa de cómo cada pareja conoció a Enzi.
+- Todas las habilidades y técnicas de combate.
+- Las estadísticas y fichas completas de Anima.
+- La historia personal detallada de Eiko.
+- El pasado completo de Jazmín.
+- La totalidad de los miembros, jerarquías y operaciones de Samael.
+- Los detalles específicos del modo especial de Hikari.
+- El futuro de la relación entre Fumi y Salama.
+- La resolución de los secretos relacionados con Víctor y Enmy.
+- Los guiones completos de la novela visual.
+- La apariencia exacta de algunos personajes secundarios sin sus imágenes originales.
+Si se necesita desarrollar cualquiera de esos puntos, consultar al usuario antes de presentarlo como hecho confirmado.
+A partir de ahora, trata todo este documento como el canon de referencia de Fathia.
+Cuando te pida una imagen, una historia, un diálogo, una escena o una aventura, utiliza estos datos para mantener la continuidad.
+Recuerda especialmente:
+- Horo fue la primera pareja de Enzi.
+- Enzi tiene tres colas en las imágenes.
+- Horo y Asuka son hermanas.
+- Asuka es tsundere.
+- Fumi es un hada y Eiko desconoce su naturaleza.
+- Salama conoce a Enmy sin saber que es Enzi.
+- Lerey conoce a Víctor sin saber que es Enzi.
+- Pip se transforma con cada beso.
+- Yuna utiliza orejas y cola falsas.
+- Mary y Mimy fueron creadas por IA.
+- Exusiai y Lappland son pareja y trabajan en Samael.
+- Benienma-Sama está relacionada con Aria.
+- La familia oculta su naturaleza sobrenatural de la Iglesia.
+- El caserón es el hogar principal de los 12 residentes.
+- Los personajes de los jugadores no deben ser controlados por el narrador.
+No modifiques el canon sin mi autorización. Si agrego información nueva o corrijo un detalle, considéralo una actualización del universo de Fathia.
+FIN DEL DOCUMENTO MAESTRO DE FATHIA.
