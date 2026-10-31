@@ -1,5 +1,11 @@
 # Referencias visuales originales
 
+El archivo `jardin-fathia.svg` es una ilustración decorativa del fondo, con árboles,
+flores y un sendero. Su fuente editable se guarda aquí y una copia en formato
+data URI está integrada en los estilos de `index.html`, de modo que cambiar solo
+el HTML basta para actualizar el diseño y la aplicación funciona sin Internet.
+Si modificas el SVG, actualiza también su copia integrada en los estilos.
+
 Esta carpeta contiene las imágenes originales del usuario, sin regenerarlas ni
 alterar su encuadre. La aplicación las muestra completas, con proporciones
 conservadas, y permite abrir el original desde la ficha.

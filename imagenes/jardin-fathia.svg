@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b9dace"/><stop offset=".56" stop-color="#edf1d6"/><stop offset="1" stop-color="#faf2d6"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="800" y1="500" x2="800" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b5ce91"/><stop offset="1" stop-color="#648957"/>
+    </linearGradient>
+    <linearGradient id="trunk" x1="0" y1="0" x2="130" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#725e40"/><stop offset=".6" stop-color="#a58a5a"/><stop offset="1" stop-color="#c3aa76"/>
+    </linearGradient>
+    <radialGradient id="light"><stop stop-color="#fff9da" stop-opacity=".95"/><stop offset="1" stop-color="#fff9da" stop-opacity="0"/></radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+    <g id="leaf"><path d="M0 0C-12-35 4-69 28-85C42-49 29-16 0 0Z" fill="#759c61"/><path d="M0 0 23-72" stroke="#557e48" stroke-width="2"/></g>
+    <g id="flower">
+      <ellipse cy="-13" rx="9" ry="15" fill="currentColor"/>
+      <ellipse cy="-13" rx="9" ry="15" fill="currentColor" transform="rotate(72)"/>
+      <ellipse cy="-13" rx="9" ry="15" fill="currentColor" transform="rotate(144)"/>
+      <ellipse cy="-13" rx="9" ry="15" fill="currentColor" transform="rotate(216)"/>
+      <ellipse cy="-13" rx="9" ry="15" fill="currentColor" transform="rotate(288)"/>
+      <circle r="6" fill="#e8bf65"/><circle cx="-1" cy="-1" r="2" fill="#fff1b8"/>
+    </g>
+    <g id="sprig">
+      <path d="M0 0C15-34-2-75 19-113" stroke="#4c764b" stroke-width="4" stroke-linecap="round"/>
+      <use href="#leaf" transform="translate(6 -34) rotate(-68) scale(.5)"/>
+      <use href="#leaf" transform="translate(9 -65) rotate(30) scale(.4)"/>
+      <use href="#flower" transform="translate(20 -116) scale(.64)"/>
+    </g>
+    <g id="distant-tree">
+      <path d="M0 0 8-140 17 0" fill="#8aa082"/>
+      <ellipse cy="-155" rx="57" ry="78" fill="#91b098"/>
+      <ellipse cx="-34" cy="-143" rx="35" ry="54" fill="#a3be9d"/>
+      <ellipse cx="31" cy="-176" rx="34" ry="54" fill="#b4cba2"/>
+    </g>
+    <g id="tree">
+      <path d="M79 683C119 495 106 301 77 138L126 123C148 350 157 512 143 670L186 709 125 694 71 715Z" fill="url(#trunk)"/>
+      <path d="M118 302 18 173M130 233 226 93M120 178 89 50" stroke="#8e7851" stroke-width="19" stroke-linecap="round"/>
+      <path d="M105 620C130 479 119 385 126 326M115 277 61 210" stroke="#ccb888" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+      <ellipse cx="12" cy="135" rx="115" ry="109" fill="#638c61"/>
+      <ellipse cx="108" cy="61" rx="130" ry="108" fill="#769d6c"/>
+      <ellipse cx="231" cy="115" rx="135" ry="101" fill="#73996a"/>
+      <ellipse cx="106" cy="163" rx="160" ry="89" fill="#87aa74"/>
+      <ellipse cx="225" cy="57" rx="89" ry="70" fill="#a4bd85"/>
+      <ellipse cx="23" cy="58" rx="68" ry="56" fill="#a2bb83"/>
+      <ellipse cx="98" cy="14" rx="73" ry="57" fill="#b8ca8e"/>
+      <path d="M-39 151C10 175 49 158 76 141M144 152C194 174 242 154 276 130M71 85C109 102 141 87 154 67" stroke="#c1d39c" stroke-width="10" stroke-linecap="round" opacity=".6"/>
+      <g color="#f1bcc8">
+        <use href="#flower" transform="translate(-14 134) scale(.56)"/>
+        <use href="#flower" transform="translate(63 76) scale(.72)"/>
+        <use href="#flower" transform="translate(165 169) scale(.48)"/>
+        <use href="#flower" transform="translate(269 123) scale(.64)"/>
+        <use href="#flower" transform="translate(183 45) scale(.53)"/>
+      </g>
+      <g color="#fff0e2">
+        <use href="#flower" transform="translate(9 99) scale(.45)"/>
+        <use href="#flower" transform="translate(95 56) scale(.46)"/>
+        <use href="#flower" transform="translate(226 174) scale(.46)"/>
+      </g>
+    </g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0H1600V1100H0Z"/>
+  <ellipse cx="905" cy="245" rx="440" ry="350" fill="url(#light)"/>
+  <g opacity=".45" filter="url(#soft)">
+    <path d="M195 204C235 159 277 173 297 189C331 133 399 152 416 187C458 174 498 194 503 215H174Z" fill="#fffcec"/>
+    <path d="M1045 145C1073 113 1112 117 1133 139C1176 94 1220 111 1242 139C1287 123 1320 142 1337 162H1022Z" fill="#fffcec"/>
+  </g>
+  <path d="M0 526C243 433 366 555 578 501C830 423 1007 467 1202 487C1369 452 1504 443 1600 490V1100H0Z" fill="#becf9d"/>
+  <g opacity=".55">
+    <use href="#distant-tree" transform="translate(418 581) scale(.9)"/>
+    <use href="#distant-tree" transform="translate(532 577) scale(.72)"/>
+    <use href="#distant-tree" transform="translate(1100 567) scale(.82)"/>
+    <use href="#distant-tree" transform="translate(1190 569) scale(1.1)"/>
+  </g>
+  <path d="M0 647C253 538 440 593 684 551C1038 487 1363 536 1600 609V1100H0Z" fill="url(#grass)"/>
+  <path d="M917 552C1023 609 831 669 875 747C907 806 1006 869 1167 1100H700C726 965 789 879 780 799C766 673 949 624 896 552Z" fill="#e6ddb5"/>
+  <path d="M904 553C971 607 801 677 827 767C852 857 896 924 946 1100" stroke="#f7edcf" stroke-width="27" opacity=".7"/>
+  <g opacity=".85">
+    <ellipse cx="318" cy="636" rx="221" ry="69" fill="#9fb67e"/>
+    <ellipse cx="1370" cy="657" rx="243" ry="86" fill="#87a570"/>
+    <ellipse cx="27" cy="743" rx="328" ry="116" fill="#6f955f"/>
+  </g>
+  <use href="#tree" transform="translate(-80 0) scale(1.12)"/>
+  <use href="#tree" transform="translate(1635 32) scale(-1.15 1.15)"/>
+  <use href="#tree" transform="translate(-163 -72) scale(.74)" opacity=".7"/>
+  <path d="M0 1030C172 901 343 910 562 1057L640 1100H0Z" fill="#557b4b"/>
+  <path d="M1176 1100C1293 900 1440 877 1600 930V1100Z" fill="#537a4b"/>
+  <g color="#edacc0">
+    <use href="#sprig" transform="translate(68 1013) scale(1.2) rotate(-15)"/>
+    <use href="#sprig" transform="translate(166 1049) scale(1.5) rotate(7)"/>
+    <use href="#sprig" transform="translate(324 1085) scale(1.1) rotate(18)"/>
+    <use href="#sprig" transform="translate(1485 1042) scale(1.6) rotate(12)"/>
+    <use href="#sprig" transform="translate(1353 1070) scale(1.2) rotate(-12)"/>
+    <use href="#sprig" transform="translate(1568 967) scale(.9) rotate(-20)"/>
+  </g>
+  <g color="#fff0da">
+    <use href="#sprig" transform="translate(103 1089) scale(1.3) rotate(-27)"/>
+    <use href="#sprig" transform="translate(240 1073) scale(1.1) rotate(-15)"/>
+    <use href="#sprig" transform="translate(407 1107) scale(1.1) rotate(-19)"/>
+    <use href="#sprig" transform="translate(1404 1111) scale(1.65) rotate(-9)"/>
+    <use href="#sprig" transform="translate(1543 1106) scale(1.35) rotate(13)"/>
+  </g>
+  <g color="#d9b5d1">
+    <use href="#sprig" transform="translate(38 1121) scale(1.7) rotate(9)"/>
+    <use href="#sprig" transform="translate(281 1121) scale(1.6) rotate(-6)"/>
+    <use href="#sprig" transform="translate(1290 1129) scale(1.4) rotate(-12)"/>
+    <use href="#sprig" transform="translate(1509 1123) scale(1.2) rotate(-19)"/>
+  </g>
+  <g fill="#fbf0db" opacity=".8">
+    <ellipse cx="332" cy="323" rx="5" ry="12" transform="rotate(33 332 323)"/>
+    <ellipse cx="1276" cy="293" rx="5" ry="11" transform="rotate(-39 1276 293)"/>
+    <ellipse cx="1143" cy="410" rx="4" ry="9" transform="rotate(41 1143 410)"/>
+    <ellipse cx="480" cy="438" rx="4" ry="10" transform="rotate(-24 480 438)"/>
+  </g>
+  <g fill="#eeb9c6" opacity=".8">
+    <ellipse cx="255" cy="386" rx="5" ry="11" transform="rotate(-30 255 386)"/>
+    <ellipse cx="1392" cy="391" rx="5" ry="11" transform="rotate(29 1392 391)"/>
+    <ellipse cx="1264" cy="515" rx="4" ry="9" transform="rotate(-19 1264 515)"/>
+    <ellipse cx="369" cy="528" rx="4" ry="9" transform="rotate(50 369 528)"/>
+  </g>
+</svg>

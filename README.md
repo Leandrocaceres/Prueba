@@ -39,6 +39,12 @@ las solicitudes locales permiten validar el servicio.
 
 ## Consultar y editar
 
+La interfaz tiene una paleta de verdes, crema y rosa, con un fondo ilustrado
+de árboles y flores. El jardín está integrado en `index.html` y funciona sin
+conexión ni descargas externas. Para actualizar la apariencia en una copia ya
+instalada, basta con reemplazar `index.html` y recargar el navegador con Ctrl+F5;
+no reemplaces tu carpeta `datos` si quieres conservar sus cambios.
+
 Todas las secciones muestran directamente las entradas existentes, sin formularios
 de creación. El editor solo se abre al pulsar «Editar» y se cierra al guardar
 o cancelar.
