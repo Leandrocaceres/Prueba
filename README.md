@@ -3,6 +3,14 @@
 Aplicación web local en español para consultar y ampliar el canon de Fathia,
 la campaña de Anima: Beyond Fantasy. Python 3.10 o superior, sin dependencias externas.
 
+## Descargar el proyecto completo
+
+[Descargar Fathia-proyecto.zip](https://github.com/Leandrocaceres/Prueba/raw/refs/heads/main/Fathia-proyecto.zip)
+
+El paquete incluye el código, la campaña actual, el canon, todos los retratos
+y un archivo `COMO_ABRIR.txt` con los pasos para ejecutarlo. Extrae el ZIP completo
+antes de iniciar la aplicación. Requiere Python 3.10 o superior.
+
 ## Ejecutar
 
 Desde la carpeta del repositorio:
